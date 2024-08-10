@@ -1104,3 +1104,188 @@ nav ul li.btn.hide i:before{
     font-size: 16px;
   }
 }
+/* ========================================================================
+                     About css start here
+========================================================================  */
+.About {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: white;
+  overflow: hidden;
+  margin-top: 30px;
+  border-radius: 40px;
+}
+.page8 {
+  padding: 20px;
+}
+
+.bio8 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  background-color: #000;
+  border-radius: 10px;
+}
+
+.heading3 {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.leftbio,
+.rightbio {
+  padding: 20px;
+}
+
+.leftbio p {
+  font-size: 1em;
+  margin: 20px 0;
+}
+
+.biolinks {
+  margin-top: 20px;
+}
+
+.biolinks ul {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.biolinks li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.biolinks li i {
+  margin-right: 10px;
+  font-size: 1vw;
+}
+
+.photobio img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.textbio {
+  margin-top: 20px;
+}
+
+.lefttextbio {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.righttextbio p {
+  margin: 10px 0;
+}
+
+.biosocial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.onesocial {
+  background-color: #181818;
+  border-radius: 10px;
+  width: 45%;
+  padding: 10px;
+  text-align: center;
+}
+
+.onesocial .item-hints {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.onesocial .hint-dot {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #444;
+}
+
+/* Mobile (up to 600px) */
+@media (max-width: 600px) {
+  .bio8 {
+    grid-template-columns: 1fr;
+  }
+
+  .biolinks ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .biolinks li {
+    margin: 0 5px;
+  }
+  .biolinks li i {
+    font-size: 6vw;
+  }
+
+  .rightbio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Tablet (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .bio8 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rightbio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .textbio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+ 
+}
+
+/* Laptop and bigger screens (1025px and up) */
+@media (min-width: 1025px) {
+  .bio8 {
+    grid-template-columns: 30% 70%;
+  }
+
+  .leftbio,
+  .rightbio {
+    padding: 40px;
+  }
+
+  .leftbio p {
+    font-size: 1.2em;
+  }
+
+  .biosocial {
+    justify-content: space-around;
+  }
+
+  .onesocial {
+    width: 22%;
+  }
+  .photobio img {
+    width: 700px;
+    border-radius: 10px;
+  }
+}
