@@ -344,3 +344,107 @@ nav ul li.btn.hide i:before{
     }
   }
   
+/* ========================================================================
+                     Moving Text css start here
+========================================================================  */
+.page2 {
+    width: 100%;
+    min-height: 25vh;
+    background-color: black;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .moving-text {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  
+  .con {
+    display: inline-block;
+    white-space: nowrap;
+    animation: move 10s linear infinite;
+  }
+  
+  .moving-text h1 {
+    font-size: 9vw;
+    display: inline-block;
+    white-space: nowrap;
+    color: var(--light_gray);
+  }
+  
+  .moving-text::-webkit-scrollbar {
+    display: none;
+  }
+  
+  @keyframes move {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  #gola {
+    margin: 1vw 2vw;
+    background-color: var(--light_blue);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .page2 {
+      width: 100%;
+      min-height: 20vh;
+    }
+  
+    .moving-text h1 {
+      font-size: 12vw;
+    }
+  
+    #gola {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  /* Tablet responsiveness */
+  @media (min-width: 769px) and (max-width: 1023px) {
+    .page2 {
+      width: 100%;
+      min-height: 25vh;
+    }
+  
+    .moving-text h1 {
+      font-size: 10vw;
+    }
+  
+    #gola {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  /* Laptop and large screens responsiveness */
+  @media (min-width: 1024px) {
+    .page2 {
+      width: 100%;
+      min-height: 30vh;
+    }
+  
+    .moving-text h1 {
+      font-size: 9vw;
+    }
+  
+    #gola {
+      width: 50px;
+      height: 50px;
+    }
+  }
