@@ -940,3 +940,166 @@ nav ul li.btn.hide i:before{
     height: 125px;
   }
 }
+/* ========================================================================
+                     Projects css start here
+========================================================================  */
+
+/* Base styles for the section */
+.quote-section {
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+.quote-section h3 {
+  margin-top: 20px;
+  font-size: 4vw;
+  width: 700px;
+  font-family: "Anta", sans-serif;
+  text-align: center;
+}
+.quote-section p {
+  margin-top: 20px;
+  font-size: 2vw;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.quote-content {
+  text-align: center;
+  color: white;
+  width: 80%;
+  background-color: black;
+  border-radius: 20px;
+  height: 180px;
+}
+
+.quote-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.quote-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.quote-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.inquiry-button {
+  background-color: transparent;
+}
+
+.inquiry-button:hover {
+  background-color: white;
+  color: #03312e;
+}
+
+.call-button {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.call-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+}
+
+/* Responsive styles */
+
+/* Mobile (up to 600px) */
+@media (max-width: 600px) {
+  .quote-section {
+    padding: 10px;
+  }
+  .quote-content {
+    height: 250px;
+  }
+
+  .quote-content h2 {
+    font-size: 20px;
+  }
+  .quote-section h3 {
+    font-size: 20px;
+  }
+
+  .quote-content p {
+    font-size: 14px;
+  }
+  .quote-section p {
+    font-size: 14px;
+  }
+  .button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Tablet (601px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .quote-section {
+    padding: 15px;
+  }
+
+  .quote-content h2 {
+    font-size: 22px;
+  }
+  .quote-section h3 {
+    font-size: 22px;
+  }
+  .quote-content p {
+    font-size: 15px;
+  }
+  .quote-section p {
+    font-size: 15px;
+  }
+
+  .button {
+    padding: 9px 18px;
+    font-size: 15px;
+  }
+}
+
+/* Laptop and bigger screens (1025px and up) */
+@media (min-width: 1025px) {
+  .quote-section {
+    padding: 20px;
+  }
+
+  .quote-content h2 {
+    font-size: 24px;
+  }
+  .quote-section h3 {
+    font-size: 24px;
+  }
+  .quote-content p {
+    font-size: 16px;
+  }
+  .quote-section p {
+    font-size: 16px;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
