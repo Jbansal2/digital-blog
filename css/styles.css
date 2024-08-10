@@ -1031,6 +1031,7 @@ nav ul li.btn.hide i:before{
 @media (max-width: 600px) {
   .quote-section {
     padding: 10px;
+     overflow-x: hidden;
   }
   .quote-content {
     height: 250px;
