@@ -1,3 +1,7 @@
+/* ========================================================================
+                     Cursor Effect Javascript start here
+========================================================================  */
+
 const coords = { x: 0, y: 0 };
 const circles = document.querySelectorAll(".circle");
 
@@ -60,15 +64,9 @@ function animateCircles() {
 
 animateCircles();
 
-// Add scroll shadow to navbar
-window.addEventListener("scroll", function () {
-  const nav = document.querySelector("nav");
-  if (window.scrollY > 0) {
-    nav.classList.add("scroll-shadow");
-  } else {
-    nav.classList.remove("scroll-shadow");
-  }
-});
+/* ========================================================================
+                     Pop Up Effect Javascript start here
+========================================================================  */
 
 // Get the pop-up element
 var popup = document.getElementById("popup");
@@ -82,11 +80,11 @@ var closeBtn = document.querySelector(".close-btn");
 // When the user clicks on a button, open the pop-up with animation
 buttons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent the default link behavior
+    event.preventDefault(); 
     popup.style.display = "block";
     setTimeout(function () {
-      popup.classList.add("open"); // Trigger the animation
-    }, 10); // Slight delay to ensure display block is applied
+      popup.classList.add("open"); 
+    }, 10); 
   });
 });
 
@@ -117,14 +115,32 @@ document.addEventListener("scroll", function () {
   upperScroll.scrollLeft = scrollY * 2; // Adjust the multiplier as needed
   lowerScroll.scrollLeft = scrollY * 2; // Adjust the multiplier as needed
 });
+/* ========================================================================
+                     Navbar Effect Javascript start here
+========================================================================  */
+const body = document.querySelector("body");
+const navbar = document.querySelector(".navbar");
+const menuBtn = document.querySelector(".menu-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
 
-$(document).ready(function () {
-  $(".btn").click(function () {
-    $(".items").toggleClass("show");
-    $("ul li").toggleClass("hide");
-  });
-});
+menuBtn.onclick = () => {
+  navbar.classList.add("show");
+  menuBtn.classList.add("hide");
+  body.classList.add("disabled");
+};
 
+cancelBtn.onclick = () => {
+  body.classList.remove("disabled");
+  navbar.classList.remove("show");
+  menuBtn.classList.remove("hide");
+};
 
-;
+// Add sticky class on scroll
+window.onscroll = () => {
+  if (window.scrollY > 0) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+};
 
