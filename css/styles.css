@@ -59,31 +59,25 @@
 /* ========================================================================
                      Navbar css start here
 ========================================================================  */
-/* Existing CSS */
 
+
+/* Default (for desktops and large screens) */
 nav {
   background: var(--light_gray);
   padding: 5px 40px;
 }
-
 nav ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between; /* Change this to space-between */
+  justify-content: center;
   z-index: 99999999;
 }
-
 nav ul li {
   padding: 15px 0;
   cursor: pointer;
 }
-
-nav ul li a {
-  color: var(--color2);
-}
-
 nav ul li.items {
   position: relative;
   width: auto;
@@ -91,7 +85,6 @@ nav ul li.items {
   text-align: center;
   order: 3;
 }
-
 nav ul li.items:after {
   position: absolute;
   content: '';
@@ -103,12 +96,10 @@ nav ul li.items:after {
   opacity: 0;
   transition: all 0.2s linear;
 }
-
 nav ul li.items:hover:after {
   opacity: 1;
   bottom: 8px;
 }
-
 nav ul li.logo {
   flex: 1;
   color: var(--color2);
@@ -117,74 +108,26 @@ nav ul li.logo {
   cursor: default;
   user-select: none;
   font-family: "Fjalla One", sans-serif;
-  text-align: left; /* Align logo to the left */
-  order: 1; /* Ensure the logo is first */
 }
-
 nav ul li a {
   color: var(--color2);
   font-size: 18px;
   text-decoration: none;
-  transition: .4s;
+  transition: 0.4s;
   font-family: "Anta", sans-serif;
 }
-
 nav ul li:hover a {
   color: var(--light_blue);
 }
-
 nav ul li i {
   font-size: 23px;
 }
-
 nav ul li.btn {
   display: none;
 }
-
 nav ul li.btn.hide i:before {
   content: '\f00d';
 }
-
-@media all and (max-width: 900px) {
-  nav {
-    padding: 5px 30px;
-  }
-
-  nav ul {
-    justify-content: space-between; /* Align items to left and right */
-  }
-
-  nav ul li.items {
-    width: 100%;
-    display: none;
-    order: 3; /* Ensure menu items come after logo */
-  }
-
-  nav ul li.items.show {
-    display: block;
-  }
-
-  nav ul li.btn {
-    display: block;
-    order: 2; /* Ensure the menu button is on the right */
-  }
-
-  nav ul li.logo {
-    order: 1; /* Ensure logo is on the left */
-    text-align: left; /* Align text to the left */
-  }
-
-  nav ul li.items:hover {
-    border-radius: 5px;
-    box-shadow: inset 0 0 5px var(--light_blue),
-                inset 0 0 10px var(--light_blue);
-  }
-
-  nav ul li.items:hover:after {
-    opacity: 0;
-  }
-}
-
 header {
   position: fixed;
   top: 0;
@@ -194,11 +137,81 @@ header {
   transition: box-shadow 0.3s ease;
 }
 
-@media all and (min-width: 900px) {
-  header.scrolled {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Tablets (768px to 899px) */
+@media all and (max-width: 899px) and (min-width: 768px) {
+  nav {
+    padding: 5px 30px;
+  }
+  nav ul {
+    justify-content: space-between;
+  }
+  nav ul li.logo {
+    font-size: 20px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+  nav ul li.items {
+    margin: 0 10px;
   }
 }
+
+/* Mobile (max-width: 767px) */
+@media all and (max-width: 767px) {
+  nav {
+    padding: 5px 20px;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul li.items {
+    width: 100%;
+    display: none;
+  }
+  nav ul li.items.show {
+    display: block;
+  }
+  nav ul li.btn {
+    display: block;
+  }
+  nav ul li.logo {
+    font-size: 18px;
+  }
+  nav ul li a {
+    font-size: 16px;
+    display: block;
+    padding: 10px 0;
+  }
+  nav ul li.items:hover {
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px var(--light_blue),
+                inset 0 0 10px var(--light_blue);
+  }
+  nav ul li.items:hover:after {
+    opacity: 0;
+  }
+}
+
+/* Laptops (900px to 1199px) */
+@media all and (min-width: 900px) and (max-width: 1199px) {
+  nav {
+    padding: 5px 30px;
+  }
+  nav ul {
+    justify-content: space-between;
+  }
+  nav ul li.logo {
+    font-size: 22px;
+  }
+  nav ul li a {
+    font-size: 17px;
+  }
+  nav ul li.items {
+    margin: 0 14px;
+  }
+}
+
 
 /* ========================================================================
                      Cursor css start here
