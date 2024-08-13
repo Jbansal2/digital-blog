@@ -18,28 +18,72 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Tac+One&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Tac+One&display=swap');
-
-:root {
-    --light_gray: #eceef3;
-    --secondary_gray: #f4f6fa;
-    --secondary: #211951;
-    --light_pink: #edd9f2;
-    --light_blue: #7958fc;
-    --white-rgb: 232, 234, 241;
-    --light-yellow: #f7d9ab;
-    --light-sky: #c5f0fd;
-    --brand--cod-gray-cloud: #f7f7f8;
-    --color1: #fff;
-    --color2: #181818;
-}
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat',sans-serif;
+  font-family: "Poppins", sans-serif;
+
 }
+
+:root {
+  --light_gray: #eceef3;
+  --secondary_gray: #f4f6fa;
+  --secondary: #211951;
+  --light_pink: #edd9f2;
+  --light_blue: #7958fc;
+  --white-rgb: 232, 234, 241;
+  --light-yellow: #f7d9ab;
+  --light-sky: #c5f0fd;
+  --brand--cod-gray-cloud: #f7f7f8;
+  --color1: #fff;
+  --color2: #181818;
+}
+/* ========================================================================
+                     Cursor css start here
+========================================================================  */
+
+.circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999; 
+}
+/* ========================================================================
+                     Loader css start here
+========================================================================  */
+
+#loader {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  transition: all linear 1s;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#loader h1 {
+  font-size: 40px;
+  font-family: "Dosis", sans-serif;
+}
+
+/* ========================================================================
+                     Navbar css start here
+========================================================================  */
+/* Existing CSS */
+
 nav{
   background: var(--light_gray);
   padding: 5px 40px;
@@ -50,6 +94,7 @@ nav ul{
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  z-index: 99999999;
 }
 nav ul li {
   padding: 15px 0;
@@ -134,6 +179,21 @@ nav ul li.btn.hide i:before{
     opacity: 0;
   }
 }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+@media all and (min-width: 900px) {
+  header.scrolled {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
 /* ========================================================================
                      Cursor css start here
 ========================================================================  */
@@ -149,305 +209,311 @@ nav ul li.btn.hide i:before{
     pointer-events: none;
     z-index: 99999999; 
 }
+
+
+
+
 /* ========================================================================
-                     intro css start here
+                     Intro css start here
 ========================================================================  */
+
 .intro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    flex-direction: column;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.introduction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.introduction span {
+  font-size: 1.4vw;
+  color: var(--light_blue);
+  text-align: center;
+}
+
+.introduction h3 {
+  font-size: 7vw;
+  text-align: center;
+  font-family: "Anta", sans-serif;
+  width: 80vw;
+  margin-top: 20px;
+}
+
+.introduction p {
+  font-size: 1.5vw;
+  width: 50vw;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(75, 74, 74);
+}
+
+.intro .button {
+  padding: 15px 20px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  z-index: 1;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.intro .button a{
+  color: white;
+  text-decoration: none;
+}
+
+.intro .button::after,
+.intro .button::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all 0.4s;
+}
+
+.intro .button::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #28282d;
+  border-radius: 10px;
+}
+
+.intro .button::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.intro .button:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.intro .button:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.intro .button:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+span #wave {
+  font-size: 1.5em;
+  cursor: pointer;
+  display: inline-block;
+  animation: wave 0.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(4deg);
   }
-  
-  .introduction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+  50% {
+    transform: rotate(-4deg);
   }
-  
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .introduction span {
+    font-size: 5vw;
+  }
+
+  .introduction h3 {
+    font-size: 12vw;
+    width: 90vw;
+  }
+
+  .introduction p {
+    font-size: 6vw;
+    width: 90%;
+  }
+
+  .intro .button {
+    margin-top: 35px;
+    font-size: 5vw;
+    /* Adjust button font size for better visibility */
+    padding: 10px 15px;
+    /* Adjust button padding */
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 700px) and (max-width: 1023px) {
+  .introduction span {
+    font-size: 3.5vw;
+  }
+
+  .introduction h3 {
+    font-size: 8vw;
+    width: 95vw;
+  }
+
+  .introduction p {
+    font-size: 4vw;
+    width: 90%;
+  }
+
+  .intro .button {
+    margin-top: 35px;
+    font-size: 3.5vw;
+    /* Adjust button font size for better visibility */
+    padding: 12px 18px;
+    /* Adjust button padding */
+  }
+}
+
+/* Large screens responsiveness */
+@media (min-width: 1024px) {
   .introduction span {
     font-size: 1.4vw;
-    color: var(--light_blue);
-    text-align: center;
   }
-  
+
   .introduction h3 {
-    font-size: 7vw;
-    text-align: center;
-    font-family: "Anta", sans-serif;
+    font-size: 3vw;
+    /* Adjusted for better readability */
     width: 80vw;
-    margin-top: 20px;
   }
-  
+
   .introduction p {
     font-size: 1.5vw;
     width: 50vw;
-    margin-top: 20px;
-    text-align: center;
-    color: rgb(75, 74, 74);
   }
-  
+
   .intro .button {
+    font-size: 1.5vw;
+    /* Adjust button font size for consistency */
     padding: 15px 20px;
-    font-size: 16px;
-    background: transparent;
-    border: none;
-    position: relative;
-    color: #f0f0f0;
-    z-index: 1;
-    margin-top: 15px;
-    cursor: pointer;
   }
-  .intro .button a{
-    color: white;
-    text-decoration: none;
-  }
-  
-  .intro .button::after,
-  .intro .button::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -99999;
-    transition: all 0.4s;
-  }
-  
-  .intro .button::before {
-    transform: translate(0%, 0%);
-    width: 100%;
-    height: 100%;
-    background: #28282d;
-    border-radius: 10px;
-  }
-  
-  .intro .button::after {
-    transform: translate(10px, 10px);
-    width: 35px;
-    height: 35px;
-    background: #ffffff15;
-    backdrop-filter: blur(5px);
-    border-radius: 50px;
-  }
-  
-  .intro .button:hover::before {
-    transform: translate(5%, 20%);
-    width: 110%;
-    height: 110%;
-  }
-  
-  .intro .button:hover::after {
-    border-radius: 10px;
-    transform: translate(0, 0);
-    width: 100%;
-    height: 100%;
-  }
-  
-  .intro .button:active::after {
-    transition: 0s;
-    transform: translate(0, 5%);
-  }
-  
-  span #wave {
-    font-size: 1.5em;
-    cursor: pointer;
-    display: inline-block;
-    animation: wave 0.5s infinite;
-    transform-origin: 70% 70%;
-  }
-  
-  @keyframes wave {
-    0%,
-    100% {
-      transform: rotate(4deg);
-    }
-  
-    50% {
-      transform: rotate(-4deg);
-    }
-  }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .introduction span {
-      font-size: 5vw;
-    }
-  
-    .introduction h3 {
-      font-size: 12vw;
-      width: 90vw;
-    }
-  
-    .introduction p {
-      font-size: 6vw;
-      width: 90%;
-    }
-  
-    .intro .button {
-      margin-top: 35px;
-      font-size: 5vw;
-      /* Adjust button font size for better visibility */
-      padding: 10px 15px;
-      /* Adjust button padding */
-    }
-  }
-  
-  /* Tablet responsiveness */
-  @media (min-width: 700px) and (max-width: 1023px) {
-    .introduction span {
-      font-size: 3.5vw;
-    }
-  
-    .introduction h3 {
-      font-size: 8vw;
-      width: 95vw;
-    }
-  
-    .introduction p {
-      font-size: 4vw;
-      width: 90%;
-    }
-  
-    .intro .button {
-      margin-top: 35px;
-      font-size: 3.5vw;
-      /* Adjust button font size for better visibility */
-      padding: 12px 18px;
-      /* Adjust button padding */
-    }
-  }
-  
-  /* Large screens responsiveness */
-  @media (min-width: 1024px) {
-    .introduction span {
-      font-size: 1.4vw;
-    }
-  
-    .introduction h3 {
-      font-size: 3vw;
-      /* Adjusted for better readability */
-      width: 80vw;
-    }
-  
-    .introduction p {
-      font-size: 1.5vw;
-      width: 50vw;
-    }
-  
-    .intro .button {
-      font-size: 1.5vw;
-      /* Adjust button font size for consistency */
-      padding: 15px 20px;
-    }
-  }
-  
+}
+
 /* ========================================================================
                      Moving Text css start here
 ========================================================================  */
 .page2 {
+  width: 100%;
+  min-height: 25vh;
+  background-color: black;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moving-text {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.con {
+  display: inline-block;
+  white-space: nowrap;
+  animation: move 10s linear infinite;
+}
+
+.moving-text h1 {
+  font-size: 9vw;
+  display: inline-block;
+  white-space: nowrap;
+  color: var(--light_gray);
+}
+
+.moving-text::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+#gola {
+  margin: 1vw 2vw;
+  background-color: var(--light_blue);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .page2 {
+    width: 100%;
+    min-height: 20vh;
+  }
+
+  .moving-text h1 {
+    font-size: 12vw;
+  }
+
+  #gola {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .page2 {
     width: 100%;
     min-height: 25vh;
-    background-color: black;
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  
-  .moving-text {
-    white-space: nowrap;
-    overflow-x: auto;
+
+  .moving-text h1 {
+    font-size: 10vw;
   }
-  
-  .con {
-    display: inline-block;
-    white-space: nowrap;
-    animation: move 10s linear infinite;
+
+  #gola {
+    width: 40px;
+    height: 40px;
   }
-  
+}
+
+/* Laptop and large screens responsiveness */
+@media (min-width: 1024px) {
+  .page2 {
+    width: 100%;
+    min-height: 30vh;
+  }
+
   .moving-text h1 {
     font-size: 9vw;
-    display: inline-block;
-    white-space: nowrap;
-    color: var(--light_gray);
   }
-  
-  .moving-text::-webkit-scrollbar {
-    display: none;
-  }
-  
-  @keyframes move {
-    from {
-      transform: translateX(0);
-    }
-  
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  
+
   #gola {
-    margin: 1vw 2vw;
-    background-color: var(--light_blue);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: inline-block;
+    width: 50px;
+    height: 50px;
   }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    .page2 {
-      width: 100%;
-      min-height: 20vh;
-    }
-  
-    .moving-text h1 {
-      font-size: 12vw;
-    }
-  
-    #gola {
-      width: 30px;
-      height: 30px;
-    }
-  }
-  
-  /* Tablet responsiveness */
-  @media (min-width: 769px) and (max-width: 1023px) {
-    .page2 {
-      width: 100%;
-      min-height: 25vh;
-    }
-  
-    .moving-text h1 {
-      font-size: 10vw;
-    }
-  
-    #gola {
-      width: 40px;
-      height: 40px;
-    }
-  }
-  
-  /* Laptop and large screens responsiveness */
-  @media (min-width: 1024px) {
-    .page2 {
-      width: 100%;
-      min-height: 30vh;
-    }
-  
-    .moving-text h1 {
-      font-size: 9vw;
-    }
-  
-    #gola {
-      width: 50px;
-      height: 50px;
-    }
-  }
+}
+
 /* ========================================================================
                      Service css start here
 ========================================================================  */
@@ -671,6 +737,7 @@ nav ul li.btn.hide i:before{
     width: 280px;
   }
 }
+
 /* ========================================================================
                      Projects css start here
 ========================================================================  */
@@ -1031,7 +1098,7 @@ nav ul li.btn.hide i:before{
 @media (max-width: 600px) {
   .quote-section {
     padding: 10px;
-     overflow-x: hidden;
+    overflow-x: hidden;
   }
   .quote-content {
     height: 250px;
@@ -1289,6 +1356,7 @@ nav ul li.btn.hide i:before{
     border-radius: 10px;
   }
 }
+
 /* ========================================================================
                      Contact css start here
 ========================================================================  */
@@ -1300,7 +1368,7 @@ nav ul li.btn.hide i:before{
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-  margin-top: 40px;
+  margin-top: 120px;
 }
 .responsive-container {
   display: flex;
@@ -1515,6 +1583,35 @@ span #wave {
     width: 95%;
   }
 }
+/* Success Popup Styling */
+.success-popup {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+.success-popup p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .contact-form-container {
+      padding: 15px;
+  }
+  nav ul {
+      flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .contact-form-container {
+      padding: 10px;
+  }
+}
 
 /* Tablet (601px to 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -1559,6 +1656,7 @@ span #wave {
     width: 95%;
   }
 }
+
 /* ========================================================================
                      Footer css start here
 ========================================================================  */
@@ -1844,7 +1942,7 @@ footer .lower h1 {
   }
 }
 
-/* Existing CSS */
+
 /* Popup content adjustments for various screen sizes */
 @media (max-width: 600px) {
   .popup-content {
@@ -1852,14 +1950,14 @@ footer .lower h1 {
     padding: 15px;
   }
   .scroll-container {
-    gap: 10px; /* Reduce gap on small screens */
+    gap: 10px;
   }
   .card5 {
-    min-width: 140px; /* Slightly reduce the card width */
+    min-width: 140px;
     padding: 10px;
   }
   .title, .content {
-    font-size: 12px; /* Adjust font size for readability */
+    font-size: 12px; 
   }
 }
 
@@ -1900,7 +1998,7 @@ footer .lower h1 {
     gap: 20px;
   }
   .card5 {
-    min-width: 220px; /* Slightly increase the card width for larger screens */
+    min-width: 220px; 
     padding: 25px;
   }
 }
@@ -2193,3 +2291,70 @@ footer .lower h1 {
   color: black;
   border: 1px solid black;
 }
+
+/* Base styles for the toast notification */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: none;
+}
+
+.toast {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 16px;
+  border-radius: 5px;
+  min-width: 250px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1rem; 
+}
+
+.toast.error {
+  background-color: #f44336;
+}
+
+/* Responsive styles */
+
+/* For large screens (laptops and desktops) */
+@media (min-width: 1024px) {
+  .toast-container {
+      top: 20px;
+      right: 20px;
+  }
+
+  .toast {
+      font-size: 1rem;
+      padding: 16px 24px; 
+  }
+}
+
+/* For tablets (between 768px and 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .toast-container {
+      top: 15px;
+      right: 15px;
+  }
+
+  .toast {
+      font-size: 0.95rem;
+      padding: 14px 20px;
+  }
+}
+
+/* For mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  .toast-container {
+      top: 10px;
+      right: 10px;
+  }
+
+  .toast {
+      font-size: 0.85rem; 
+      padding: 12px 18px; 
+      min-width: 200px; 
+  }
+}
+
